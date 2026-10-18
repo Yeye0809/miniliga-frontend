@@ -1,0 +1,56 @@
+.players-table {
+  padding: 16px;
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-soft);
+}
+
+.players-table__scroll {
+  overflow-x: auto;
+}
+
+.players-table__table {
+  width: 100%;
+  min-width: 960px;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.players-table__head {
+  background: var(--color-page-bg);
+}
+
+.players-table__heading {
+  padding: 15px 12px;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  color: var(--color-navy);
+  white-space: nowrap;
+}
+
+.players-table__heading--left {
+  text-align: left;
+}
+
+.players-table__heading--actions {
+  width: 48px;
+}
+
+.players-table__head th:first-child {
+  border-radius: 10px 0 0 10px;
+}
+
+.players-table__head th:last-child {
+  border-radius: 0 10px 10px 0;
+}
+
+.players-table__sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}

@@ -1,0 +1,18 @@
+.player-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.player-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 520px) {
+  .player-form-row {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}

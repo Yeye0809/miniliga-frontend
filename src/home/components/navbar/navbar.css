@@ -74,12 +74,11 @@ ul {
   padding: 10px 22px;
   font-size: 14px;
   font-weight: 600;
-  color: var(--color-green);
   background: transparent;
-  border: 1.5px solid var(--color-green);
   border-radius: 999px;
 }
 
 .btn-login:hover {
-  background: rgba(57, 231, 95, 0.12);
+  background: var(--color-green);
+ 
 }

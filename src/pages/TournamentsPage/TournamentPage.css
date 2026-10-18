@@ -1,0 +1,398 @@
+/* ==========================================================================
+   Variables
+   ========================================================================== */
+:root {
+  --bg: #f8f9fb;
+  --surface: #ffffff;
+  --border: #e6eaf1;
+  --border-input: #d8dde8;
+  --row-divider: #e9ecf2;
+  --thead-bg: #f3f5f9;
+
+  --navy: #0f2a66;
+  --text: #16295f;
+  --placeholder: #9aa6c0;
+  --placeholder-date: #2a3a63;
+
+  --violet: #4526e4;
+  --violet-hover: #3a1fcc;
+  --blue: #1d5ff5;
+  --blue-hover: #1650d8;
+
+  --green-bg: #dcf5ea;
+  --green-text: #0f9a62;
+  --yellow-bg: #fdf1c6;
+  --yellow-text: #c48a04;
+  --sky-bg: #dfe9fd;
+  --sky-text: #2857d4;
+
+  --content-width: 1037px;
+  /* En el ancho de referencia (1755px) el contenido queda desplazado unos 57px a la izquierda del centro */
+  --content-left: max(24px, calc((100% - var(--content-width)) / 2 - 57px));
+  --content-rigth: max(24px, calc((100% - var(--content-width)) / 2 - 57px));
+  --font: "Inter", "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ==========================================================================
+   Reset básico
+   ========================================================================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 14px;
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 {
+  margin: 0;
+}
+
+svg {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ==========================================================================
+   Encabezado
+   ========================================================================== */
+.page-header-tournaments {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 67px 44px 0 0;
+  
+}
+
+.page-title-tournaments {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-left: calc(var(--content-left) - 14px);
+  color: var(--navy);
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+/* ==========================================================================
+   Botones
+   ========================================================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 0;
+  color: #fff;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+  margin-right: calc(var(--content-rigth) - 14px);
+}
+
+.btn-logout-tournament {
+  height: 44px;
+  padding: 0 22px;
+  border-radius: 10px;
+  background: var(--violet);
+  box-shadow: 0 2px 6px rgba(69, 38, 228, 0.18);
+}
+
+.btn-logout:hover {
+  background: var(--violet-hover);
+}
+
+.icon-logout {
+  width: 17px;
+  height: 17px;
+}
+
+.btn-primary {
+  align-self: flex-start;
+  height: 40px;
+  padding: 0 21px;
+  border-radius: 8px;
+  background: var(--blue);
+}
+
+.btn-primary:hover {
+  background: var(--blue-hover);
+}
+
+.icon-save {
+  width: 16px;
+  height: 16px;
+  stroke-width: 1.6;
+}
+
+.btn:focus-visible,
+.input:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   Contenedor y tarjetas
+   ========================================================================== */
+.page-content {
+  width: min(var(--content-width), calc(100% - 48px));
+  margin: 18px 0 60px var(--content-left);
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(16, 24, 40, 0.04);
+}
+
+.card + .card {
+  margin-top: 18px;
+}
+
+.card-form {
+  padding: 26px 27px 25px;
+}
+
+.card-table {
+  padding: 18px 19px 22px;
+}
+
+/* ==========================================================================
+   Formulario
+   ========================================================================== */
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.field + .field,
+.field + .field-row {
+  margin-top: 20px;
+}
+
+.label {
+  margin-bottom: 8px;
+  color: var(--navy);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.input {
+  width: 100%;
+  height: 39px;
+  padding: 0 15px;
+  border: 1px solid var(--border-input);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.input::placeholder {
+  color: var(--placeholder);
+  opacity: 1;
+}
+
+.textarea {
+  height: 101px;
+  padding-top: 11px;
+  resize: vertical;
+  line-height: 1.4;
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: 494fr 467fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.field-row .field + .field {
+  margin-top: 0;
+}
+
+.input-wrap {
+  position: relative;
+}
+
+.input-date {
+  padding-right: 40px;
+}
+
+.input-date::placeholder {
+  color: var(--placeholder-date);
+}
+
+.icon-calendar {
+  position: absolute;
+  top: 50%;
+  right: 13px;
+  width: 16px;
+  height: 16px;
+  color: var(--navy);
+  stroke-width: 2;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.field-row + .btn {
+  margin-top: 23px;
+}
+
+/* ==========================================================================
+   Tabla
+   ========================================================================== */
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.table {
+  width: 100%;
+  min-width: 720px;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: 13.5px;
+}
+
+.table th,
+.table td {
+  padding: 0 14px;
+  height: 46px;
+  text-align: left;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.table thead th {
+  height: 41px;
+  background: var(--thead-bg);
+  color: var(--navy);
+  font-size: 13.5px;
+  font-weight: 600;
+}
+
+.table tbody td {
+  border-top: 1px solid var(--row-divider);
+  color: var(--text);
+  font-weight: 500;
+}
+
+.col-nombre  { width: 23.6%; }
+.col-inicio  { width: 20.4%; }
+.col-fin     { width: 20.2%; }
+.col-estado  { width: 16%; }
+.col-codigo  { width: 12.6%; }
+.col-acciones {
+  width: 7.2%;
+  text-align: center !important;
+}
+
+/* Menú de tres puntos (solo visual) */
+.kebab {
+  display: inline-block;
+  width: 3px;
+  height: 3px;
+  margin-left: 2px;
+  border-radius: 50%;
+  background: var(--navy);
+  box-shadow: 0 -5px 0 var(--navy), 0 5px 0 var(--navy);
+  vertical-align: middle;
+}
+
+/* ==========================================================================
+   Badges de estado
+   ========================================================================== */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
+  padding: 0 12px;
+  border-radius: 999px;
+  font-size: 12.5px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.badge-activo {
+  background: var(--green-bg);
+  color: var(--green-text);
+}
+
+.badge-pendiente {
+  background: var(--yellow-bg);
+  color: var(--yellow-text);
+}
+
+.badge-finalizado {
+  background: var(--sky-bg);
+  color: var(--sky-text);
+} 
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media (max-width: 720px) {
+  .page-header {
+    padding: 32px 20px 0;
+  }
+
+  .page-title {
+    margin-left: 0;
+    font-size: 22px;
+  }
+
+  .page-content {
+    width: auto;
+    margin: 18px 20px 40px;
+  }
+
+  .field-row {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}

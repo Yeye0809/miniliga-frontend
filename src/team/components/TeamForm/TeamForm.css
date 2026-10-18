@@ -1,0 +1,198 @@
+.formulario-equipo {
+    position: relative;
+
+    padding: 30px;
+
+    background: #ffffff;
+
+    border-radius: 18px;
+}
+
+
+/* HEADER */
+
+.formulario-header {
+    display: flex;
+    align-items: center;
+
+    gap: 16px;
+
+    margin-bottom: 30px;
+}
+
+.formulario-icono {
+    width: 55px;
+    height: 55px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: #e9fbf0;
+
+    color: #20dc58;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 23px;
+}
+
+.formulario-header h2 {
+    margin: 0 0 5px;
+
+    color: #102542;
+
+    font-size: 22px;
+}
+
+.formulario-header p {
+    margin: 0;
+
+    color: #9aaac0;
+
+    font-size: 14px;
+}
+
+
+/* CERRAR */
+
+.btn-cerrar {
+    position: absolute;
+
+    top: 18px;
+    right: 20px;
+
+    width: 35px;
+    height: 35px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #9aaac0;
+
+    font-size: 27px;
+
+    cursor: pointer;
+
+    border-radius: 50%;
+}
+
+.btn-cerrar:hover {
+    background: #f1f4f7;
+
+    color: #102542;
+}
+
+
+/* INPUT */
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+
+    gap: 9px;
+}
+
+.form-group label {
+    color: #172c44;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+.form-group label span {
+    color: #20dc58;
+}
+
+.form-group input {
+    height: 52px;
+
+    width: 100%;
+
+    padding: 0 16px;
+
+    border: 1px solid #dfe5ed;
+
+    border-radius: 10px;
+
+    outline: none;
+
+    font-size: 15px;
+
+    color: #172c44;
+}
+
+.form-group input::placeholder {
+    color: #b5c0d0;
+}
+
+.form-group input:focus {
+    border-color: #20dc58;
+
+    box-shadow: 0 0 0 3px rgba(32, 220, 88, 0.10);
+}
+
+
+/* DIVISOR */
+
+.formulario-divider {
+    height: 1px;
+
+    background: #e9edf2;
+
+    margin: 30px 0 22px;
+}
+
+
+/* BOTONES */
+
+.formulario-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 12px;
+}
+
+.btn-cancelar,
+.btn-crear {
+    height: 45px;
+
+    padding: 0 22px;
+
+    border-radius: 23px;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.btn-cancelar {
+    background: #f8fafc;
+
+    color: #8797aa;
+
+    border: 1px solid #edf0f4;
+}
+
+.btn-crear {
+    background: #20dc58;
+
+    color: white;
+
+    border: none;
+
+    box-shadow: 0 5px 14px rgba(32, 220, 88, 0.25);
+}
+
+.btn-crear:hover {
+    background: #19ce50;
+}

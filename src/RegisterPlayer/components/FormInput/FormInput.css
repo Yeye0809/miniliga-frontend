@@ -1,0 +1,58 @@
+.form-input-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.form-input-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--miniliga-navy, #0f2a4a);
+}
+
+.form-input-required {
+  color: var(--miniliga-required, #ef6b6b);
+}
+
+.form-input-control {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.form-input-icon {
+  position: absolute;
+  left: 14px;
+  display: flex;
+  align-items: center;
+  color: var(--miniliga-navy, #0f2a4a);
+  pointer-events: none;
+}
+
+.form-input-element {
+  width: 100%;
+  height: 44px;
+  padding: 0 14px;
+  font: inherit;
+  font-size: 14px;
+  color: var(--miniliga-navy, #0f2a4a);
+  background: #fff;
+  border: 1px solid var(--miniliga-border, #d8e0ea);
+  border-radius: 10px;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.form-input-element--with-icon {
+  padding-left: 46px;
+}
+
+.form-input-element::placeholder {
+  color: var(--miniliga-muted, #8a98ad);
+}
+
+.form-input-element:focus {
+  border-color: var(--miniliga-green, #22c55e);
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.15);
+}

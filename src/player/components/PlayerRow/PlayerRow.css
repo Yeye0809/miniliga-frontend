@@ -1,0 +1,94 @@
+.player-row__cell {
+  padding: 14px 12px;
+  border-bottom: 1px solid var(--color-border);
+  font-size: 14px;
+  color: var(--color-navy);
+  white-space: nowrap;
+}
+
+.player-row:last-child .player-row__cell {
+  border-bottom: none;
+}
+
+.player-row__cell--secondary {
+  color: #2b3f5e;
+}
+
+.player-row__cell--team {
+  text-transform: lowercase;
+}
+
+.player-row__cell--number {
+  text-align: center;
+}
+
+/* Tarjetas: discretas pero reconocibles (solo se colorean si el valor es > 0) */
+.player-row__cell--yellow-active {
+  color: #b7791f;
+  font-weight: 700;
+}
+
+.player-row__cell--red-active {
+  color: #d64545;
+  font-weight: 700;
+}
+
+.player-row__cell--actions {
+  width: 48px;
+  text-align: center;
+}
+
+.player-row__name {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.player-row__avatar {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.player-row__avatar--blue { background: #3b82f6; }
+.player-row__avatar--violet { background: #7c5cd6; }
+.player-row__avatar--teal { background: #14b8a6; }
+.player-row__avatar--orange { background: #f59e0b; }
+.player-row__avatar--purple { background: #8b47d9; }
+.player-row__avatar--green { background: #15803d; }
+
+.player-row__position {
+  display: inline-block;
+  padding: 4px 13px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.player-row__position--goalkeeper { background: #d9f7e4; color: #15803d; }
+.player-row__position--defender { background: #dbeafe; color: #1d5fd0; }
+.player-row__position--midfielder { background: #fdf0c4; color: #a16207; }
+.player-row__position--forward { background: #fde0e8; color: #d6336c; }
+
+.player-row__menu-button {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--color-navy);
+  cursor: pointer;
+}
+
+.player-row__menu-button:hover {
+  background: var(--color-page-bg);
+}

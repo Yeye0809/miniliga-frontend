@@ -1,10 +1,30 @@
 import { HomePage } from "./pages/homePage/HomePage";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { TournamentsPage } from "./pages/TournamentsPage/TournamentsPage";
+import { TournamentLayout } from "./layout/tournamentLayout/TournamentLayout";
+import { TeamPage } from "./pages/teamPage/TeamPage";
+import { TournamentPanelPage } from "./pages/TournamentPanelPage/TournamentPanelPage";
+import { PlayerPage } from "./pages/playerPage/PlayerPage";
+
 
 export function App(){
 
     return (
         <>
-            <HomePage />
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/torneos/" element={<TournamentsPage />}/>
+                    
+                    <Route path="/panel/torneo/:torneoId" element={<TournamentLayout />}> 
+                        <Route index element={<TournamentPanelPage />}/>
+                        <Route path="equipos"  element={<TeamPage />}/>
+                        <Route path="jugadores" element={<PlayerPage />}/>
+                    </Route>
+                    
+                </Routes>                
+            </BrowserRouter>
+            
         </>
     )
 }

@@ -1,4 +1,5 @@
 
+import { NavLink } from 'react-router-dom';
 import './HomeHero.css';
 
 export function HomeHero(){
@@ -9,8 +10,8 @@ export function HomeHero(){
             <p className="subtext">La plataforma perfecta para organizar torneos<br/>de fútbol amateur.</p>
 
             <div className="cta-group">
-            <a href="#" className="btn btn-primary">Crear torneo</a>
-            <a href="#" className="btn btn-secondary">Consultar torneo</a>
+                <NavLink to="torneos" className="btn btn-primary">Crear torneo</NavLink>
+                <a href="#" className="btn btn-secondary">Consultar torneo</a>
             </div>
         </main>
     )

@@ -1,0 +1,73 @@
+.form-select-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.form-select-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--miniliga-navy, #0f2a4a);
+}
+
+.form-select-required {
+  color: var(--miniliga-required, #ef6b6b);
+}
+
+.form-select-control {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.form-select-icon {
+  position: absolute;
+  left: 14px;
+  display: flex;
+  align-items: center;
+  color: var(--miniliga-navy, #0f2a4a);
+  pointer-events: none;
+}
+
+.form-select-arrow {
+  position: absolute;
+  right: 14px;
+  color: var(--miniliga-navy, #0f2a4a);
+  pointer-events: none;
+}
+
+.form-select-element {
+  width: 100%;
+  height: 44px;
+  padding: 0 40px 0 14px;
+  font: inherit;
+  font-size: 14px;
+  color: var(--miniliga-navy, #0f2a4a);
+  background: #fff;
+  border: 1px solid var(--miniliga-border, #d8e0ea);
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.form-select-element--with-icon {
+  padding-left: 46px;
+}
+
+/* Color de placeholder mientras no haya una opción elegida */
+.form-select-element:has(option[value=""]:checked) {
+  color: var(--miniliga-muted, #8a98ad);
+}
+
+.form-select-element:focus {
+  border-color: var(--miniliga-green, #22c55e);
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.15);
+}
+
+.form-select-element option {
+  color: var(--miniliga-navy, #0f2a4a);
+}

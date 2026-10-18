@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap');
+
+.players-page {
+  --color-navy: #0f2747;
+  --color-muted: #7b8798;
+  --color-green: #22c55e;
+  --color-green-dark: #16a34a;
+  --color-green-soft: #dcfce7;
+  --color-page-bg: #f6f8fa;
+  --color-surface: #ffffff;
+  --color-border: #e6eaf0;
+  --shadow-soft: 0 1px 4px rgba(15, 39, 71, 0.06);
+
+  flex: 1;
+  min-width: 0;
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 32px 32px 40px;
+  background: var(--color-page-bg);
+  color: var(--color-navy);
+  font-family: 'Ubuntu', 'Segoe UI', system-ui, sans-serif;
+}
+
+.players-page__toolbar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 720px) {
+  .players-page {
+    padding: 20px 16px 32px;
+  }
+}
