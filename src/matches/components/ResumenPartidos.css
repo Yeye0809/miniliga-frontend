@@ -1,0 +1,9 @@
+.resumen-partidos { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
+.resumen-partidos__card { display:flex; align-items:center; gap:16px; min-height:84px; padding:18px; background:#fff; border:1px solid #e3ebf5; border-radius:12px; box-shadow:0 3px 10px rgba(21,53,87,.035); }
+.resumen-partidos__icon { display:grid; place-items:center; flex:0 0 46px; width:46px; height:46px; border-radius:50%; font-size:24px; font-weight:700; }
+.resumen-partidos__icon--neutral { color:#18365b; background:#edf2f8; }
+.resumen-partidos__icon--green { color:#08b85a; background:#e0f9eb; }
+.resumen-partidos__card div { display:flex; flex-direction:column; gap:3px; }
+.resumen-partidos__card strong { color:#102b4d; font-size:28px; line-height:1.05; }
+.resumen-partidos__card span:last-child { color:#6d83a3; font-size:13px; }
+@media(max-width:700px) { .resumen-partidos { grid-template-columns:1fr; gap:10px; } .resumen-partidos__card { min-height:68px; } }

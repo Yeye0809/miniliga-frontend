@@ -1,0 +1,9 @@
+.partidos-page { display:flex; flex-direction:column; gap:16px; width:100%; min-width:0; padding:4px 6px 24px; color:#102b4d; }
+.partidos-page__encabezado { display:flex; flex-direction:column; align-items:flex-start; gap:5px; }
+.partidos-page__encabezado h1 { margin:0; color:#102b4d; font-size:30px; line-height:1.2; font-weight:750; }
+.partidos-page__encabezado p { display:flex; flex-wrap:wrap; gap:5px; margin:0; color:#7187a7; font-size:13px; }
+.partidos-page__encabezado p strong { color:#7187a7; font-weight:600; }
+.partidos-page__contenido { display:flex; flex-direction:column; gap:14px; }
+.partidos-page__mensaje { padding:28px 18px; color:#7187a7; background:#fff; border:1px solid #e3ebf5; border-radius:12px; text-align:center; font-size:13px; }
+.partidos-page__mensaje--error { color:#b42318; background:#fff8f7; border-color:#f4c7c3; }
+@media(max-width:600px) { .partidos-page { gap:12px; padding:0 0 18px; } .partidos-page__encabezado h1 { font-size:26px; } .partidos-page__encabezado p { font-size:12px; } }

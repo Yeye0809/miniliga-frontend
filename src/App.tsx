@@ -5,6 +5,7 @@ import { TournamentLayout } from "./layout/tournamentLayout/TournamentLayout";
 import { TeamPage } from "./pages/teamPage/TeamPage";
 import { TournamentPanelPage } from "./pages/TournamentPanelPage/TournamentPanelPage";
 import { PlayerPage } from "./pages/playerPage/PlayerPage";
+import PartidosPageExample from "./pages/matchesPage/PartidosPage.example";
 
 
 export function App(){
@@ -20,6 +21,7 @@ export function App(){
                         <Route index element={<TournamentPanelPage />}/>
                         <Route path="equipos"  element={<TeamPage />}/>
                         <Route path="jugadores" element={<PlayerPage />}/>
+                        <Route path="partidos" element={<PartidosPageExample />}/>
                     </Route>
                     
                 </Routes>                

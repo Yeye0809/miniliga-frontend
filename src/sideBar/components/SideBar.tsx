@@ -27,10 +27,10 @@ export function SideBar(){
                 <svg className="nav-icon" viewBox="0 0 24 24" fill="none"><rect x="4" y="13" width="4" height="7" rx="1" stroke="currentColor" strokeWidth="1.7"/><rect x="10" y="9" width="4" height="11" rx="1" stroke="currentColor" strokeWidth="1.7"/><rect x="16" y="5" width="4" height="15" rx="1" stroke="currentColor" strokeWidth="1.7"/></svg>
                 <span>Tabla de posiciones</span>
             </a>
-            <a href="#" className="nav-item">
+            <NavLink to="partidos" className="nav-item">
                 <svg className="nav-icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="currentColor" strokeWidth="1.7"/><path d="M12 7.2 13.7 10l3 .4-2.2 2.1.5 3-2.8-1.5L9.4 15.5l.5-3-2.2-2.1 3-.4Z" stroke="currentColor" strokeWidth="1.3" strokeLinejoin="round"/></svg>
                 <span>Partidos</span>
-            </a>
+            </NavLink>
             <NavLink to='equipos' className="nav-item">
                 <svg className="nav-icon" viewBox="0 0 24 24" fill="none"><circle cx="9" cy="8" r="3" stroke="currentColor" strokeWidth="1.7"/><path d="M3.5 19c0-3 2.5-5 5.5-5s5.5 2 5.5 5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round"/><circle cx="17" cy="9" r="2.3" stroke="currentColor" strokeWidth="1.7"/><path d="M15.5 19c0-2.3 1.8-4 3.8-4s3.7 1.2 4.2 3.3" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round"/></svg>
                 <span>Equipos</span>

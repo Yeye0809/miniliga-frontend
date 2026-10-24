@@ -1,0 +1,5 @@
+.fase-eliminatoria { overflow:hidden; background:#fff; border:1px solid #e3ebf5; border-radius:11px; box-shadow:0 3px 10px rgba(21,53,87,.035); }
+.fase-eliminatoria__encabezado { display:flex; align-items:center; gap:10px; padding:12px 16px; border-bottom:1px solid #edf1f6; }
+.fase-eliminatoria__encabezado h2 { margin:0; color:#102b4d; font-size:13px; font-weight:700; }
+.fase-eliminatoria__encabezado span:last-child { color:#7187a7; font-size:11px; }
+.fase-eliminatoria__vacio { padding:18px; margin:0; color:#7187a7; font-size:13px; text-align:center; }

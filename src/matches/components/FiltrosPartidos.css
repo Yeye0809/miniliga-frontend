@@ -1,0 +1,8 @@
+.filtros-partidos { padding:12px 14px; background:#fff; border:1px solid #e3ebf5; border-radius:12px; box-shadow:0 3px 10px rgba(21,53,87,.035); }
+.filtros-partidos__fila { display:flex; flex-wrap:wrap; gap:10px; }
+.filtros-partidos__boton { min-height:36px; padding:8px 20px; color:#496487; background:#fff; border:1px solid #e3ebf5; border-radius:9px; font:inherit; font-size:12px; cursor:pointer; transition:background .15s,border-color .15s,color .15s; }
+.filtros-partidos__boton:hover { border-color:#18c967; color:#087f42; }
+.filtros-partidos__boton.is-active { color:#fff; background:#10ca60; border-color:#10ca60; box-shadow:0 3px 7px rgba(16,202,96,.16); }
+.filtros-partidos__separador { height:1px; margin:11px 0 9px; background:#edf1f6; }
+.filtros-partidos__boton--estado { min-width:110px; }
+@media(max-width:600px) { .filtros-partidos__fila { flex-wrap:nowrap; overflow-x:auto; padding-bottom:3px; } .filtros-partidos__boton { flex:0 0 auto; } }

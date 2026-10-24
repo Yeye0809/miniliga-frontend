@@ -1,0 +1,9 @@
+.grupo-partidos { overflow:hidden; background:#fff; border:1px solid #e3ebf5; border-radius:11px; box-shadow:0 3px 10px rgba(21,53,87,.035); }
+.grupo-partidos__encabezado { display:flex; align-items:center; width:100%; min-height:44px; gap:12px; padding:9px 16px; color:#102b4d; background:#fff; border:0; text-align:left; cursor:pointer; }
+.grupo-partidos__encabezado:hover { background:#fbfdff; }
+.grupo-partidos__icono { display:grid; place-items:center; width:29px; height:29px; flex:0 0 29px; border-radius:50%; color:#1e416a; background:#edf2f8; font-size:19px; }
+.grupo-partidos__encabezado strong { font-size:13px; }
+.grupo-partidos__cantidad { color:#7187a7; font-size:11px; }
+.grupo-partidos__chevron { margin-left:auto; color:#24466d; font-size:21px; line-height:1; transform:rotate(0); transition:transform .15s; }
+.grupo-partidos__chevron.is-open { transform:rotate(180deg); }
+.grupo-partidos__vacio { padding:18px; margin:0; color:#7187a7; font-size:13px; text-align:center; }
