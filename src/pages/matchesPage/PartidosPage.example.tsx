@@ -19,3 +19,4 @@ const partidos: Partido[] = [
 export default function PartidosPageExample() {
   return <PartidosPage nombreTorneo="Copa Barrio Fútbol 7" grupos={grupos} partidos={partidos} />;
 }
+ 
