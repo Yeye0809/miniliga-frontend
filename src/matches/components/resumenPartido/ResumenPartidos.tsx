@@ -1,4 +1,5 @@
-import type { Partido } from "../interface/types";
+
+import type { Partido } from "../../interface/types";
 import "./ResumenPartidos.css";
 
 interface Props { partidos: Partido[] }

@@ -1,5 +1,6 @@
 
-import type { FasePartido } from "../interface/types";
+
+import type { FasePartido } from "../../interface/types";
 import "./FiltrosPartidos.css";
 
 export type FiltroFase = "TODOS" | "GRUPOS" | FasePartido;

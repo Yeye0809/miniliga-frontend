@@ -2,11 +2,11 @@ import { useMemo, useState } from "react";
 
 import "./PartidosPage.css";
 import type { FasePartido, Grupo, Partido } from "../../matches/interface/types";
-import type { FiltroEstado, FiltroFase } from "../../matches/components/FiltrosPartidos";
-import ResumenPartidos from "../../matches/components/ResumenPartidos";
-import FiltrosPartidos from "../../matches/components/FiltrosPartidos";
-import GrupoPartidos from "../../matches/components/GrupoPartidos";
-import FaseEliminatoria from "../../matches/components/FaseEliminatoria";
+import ResumenPartidos from "../../matches/components/resumenPartido/ResumenPartidos";
+import FiltrosPartidos, { type FiltroEstado, type FiltroFase } from "../../matches/components/filtrosPartidos/FiltrosPartidos";
+import GrupoPartidos from "../../matches/components/grupoPartidos/GrupoPartidos";
+import FaseEliminatoria from "../../matches/components/faseEliminatorias/FaseEliminatoria";
+
 
 interface Props {
   nombreTorneo: string;
@@ -50,6 +50,7 @@ export default function PartidosPage({ nombreTorneo, formatoTorneo = "Fase de gr
     {cargando ? <div className="partidos-page__mensaje">Cargando partidos…</div> : error ? <div className="partidos-page__mensaje partidos-page__mensaje--error" role="alert">{error}</div> : <>
       <ResumenPartidos partidos={partidos} />
       <FiltrosPartidos fase={fase} estado={estado} fasesDisponibles={fasesDisponibles} onFaseChange={setFase} onEstadoChange={setEstado} />
+
       {partidosFiltrados.length === 0 ? <div className="partidos-page__mensaje">No hay partidos para los filtros seleccionados.</div> : <div className="partidos-page__contenido">
         {partidosGrupos && grupos.filter((grupo) => partidosFiltrados.some((partido) => partido.fase === "GRUPOS" && (partido.grupoId === grupo.id || partido.grupoNombre === grupo.nombre))).map((grupo) => {
           const deEsteGrupo = partidosFiltrados.filter((partido) => partido.fase === "GRUPOS" && (partido.grupoId === grupo.id || partido.grupoNombre === grupo.nombre));

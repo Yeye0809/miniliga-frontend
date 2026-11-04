@@ -1,8 +1,9 @@
 import { useState } from "react";
 
-import PartidoItem from "./PartidoItem";
 import "./GrupoPartidos.css";
-import type { Grupo, Partido } from "../interface/types";
+import type { Grupo, Partido } from "../../interface/types";
+import PartidoItem from "../PartidoItem/PartidoItem";
+
 
 interface Props { grupo: Grupo; partidos: Partido[]; inicialmenteAbierto?: boolean }
 

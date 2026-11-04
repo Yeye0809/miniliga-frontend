@@ -1,6 +1,8 @@
-import PartidoItem from "./PartidoItem";
+
+import type { FasePartido, Partido } from "../../interface/types";
+import PartidoItem from "../PartidoItem/PartidoItem";
 import "./FaseEliminatoria.css";
-import type { FasePartido, Partido } from "../interface/types";
+
 
 interface Props { fase: FasePartido; partidos: Partido[] }
 const nombres: Partial<Record<FasePartido, string>> = { OCTAVOS: "Octavos de final", CUARTOS: "Cuartos de final", SEMIFINAL: "Semifinales", FINAL: "Final" };
