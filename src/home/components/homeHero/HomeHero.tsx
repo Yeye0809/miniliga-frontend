@@ -11,7 +11,7 @@ export function HomeHero(){
 
             <div className="cta-group">
                 <NavLink to="torneos" className="btn btn-primary">Crear torneo</NavLink>
-                <a href="#" className="btn btn-secondary">Consultar torneo</a>
+                <NavLink to="consultar-torneo" className="btn btn-secondary">Consultar torneo</NavLink>
             </div>
         </main>
     )

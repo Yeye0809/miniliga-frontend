@@ -1,7 +1,7 @@
 
 import axios from "axios"; 
+import type { TeamResponse } from "../interfaces/team.interface";
 
-import type { TeamResponse } from "../interfaces/team.response";
 
 export const getTeamByTorneo = async( torneoId : number): Promise<TeamResponse[]> => {
 

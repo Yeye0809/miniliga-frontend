@@ -1,0 +1,62 @@
+:root {
+  --color-bg-dark: #061A33;
+  --color-bg-deep: #06264A;
+  --color-green: #39E75F;
+  --color-green-dark: #168A38;
+  --color-white: #FFFFFF;
+  --font-main: 'Poppins', sans-serif;
+}
+
+.check-tournament-page {
+  position: relative;
+  min-height: 100vh;
+  background-image:
+    linear-gradient(180deg, rgba(4, 15, 31, 0.72) 0%, rgba(6, 26, 51, 0.58) 45%, rgba(4, 17, 33, 0.85) 100%),
+    url('../../../assets/bg-stadiun.png'),
+    radial-gradient(circle at 15% 15%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 3%),
+    radial-gradient(circle at 85% 10%, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 4%),
+    radial-gradient(ellipse at 50% 120%, #1c3f22 0%, #08260f 35%, var(--color-bg-deep) 70%);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  padding: 0 24px 60px;
+}
+
+.check-tournament-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.check-tournament-kicker {
+  margin-bottom: 16px;
+  color: var(--color-green);
+  font-size: 0.82rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.check-tournament-title {
+  max-width: 800px;
+  margin: 0 0 30px;
+  color: var(--color-white);
+  font-size: clamp(2.4rem, 5vw, 4.4rem);
+  line-height: 1.08;
+  font-weight: 700;
+}
+
+@media (max-width: 640px) {
+  .check-tournament-page {
+    padding: 0 16px 42px;
+  }
+
+  .check-tournament-content {
+    padding-top: 36px;
+  }
+}

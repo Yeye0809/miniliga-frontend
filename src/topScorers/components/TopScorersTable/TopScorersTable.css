@@ -1,0 +1,53 @@
+.top-scorers-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.top-scorers-table {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+}
+
+.top-scorers-table thead {
+  background: var(--color-page-bg);
+}
+
+.top-scorers-table th,
+.top-scorers-table td {
+  padding: 15px 12px;
+  border-bottom: 1px solid var(--color-border);
+  text-align: left;
+  font-size: 14px;
+  color: var(--color-navy);
+  white-space: nowrap;
+}
+
+.top-scorers-table th {
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  color: var(--color-navy);
+}
+
+.top-scorers-table th:first-child {
+  border-radius: 10px 0 0 10px;
+}
+
+.top-scorers-table th:last-child {
+  border-radius: 0 10px 10px 0;
+}
+
+.top-scorers-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.top-scorers-table tbody tr:hover {
+  background: rgba(132, 146, 166, 0.04);
+}

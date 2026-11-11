@@ -1,0 +1,9 @@
+.standings-page {
+  width: 100%;
+}
+
+.standings-page__groups {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}

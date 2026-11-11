@@ -1,0 +1,23 @@
+.top-scorers-page {
+  width: 100%;
+}
+
+.top-scorers-panel {
+  background: rgba(7, 19, 35, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 22px;
+  padding: 24px;
+  box-shadow: 0 20px 36px rgba(3, 9, 19, 0.18);
+}
+
+
+@media (max-width: 640px) {
+  .top-scorers-panel {
+    padding: 16px;
+  }
+
+  .top-scorers-panel-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

@@ -1,6 +1,6 @@
 import axios from "axios"
-import type { TeamRequest } from "../interfaces/team.interface";
-import type { TeamResponse } from "../interfaces/team.response";
+import type { TeamRequest, TeamResponse } from "../interfaces/team.interface";
+
 
 
 
