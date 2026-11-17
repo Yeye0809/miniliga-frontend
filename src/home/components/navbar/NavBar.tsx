@@ -25,7 +25,7 @@ export function NavBar(){
           <li><a href="#">Precios</a></li>
         </ul>
 
-        <a href="#" className="btn btn-login">Iniciar sesión</a>
+        <Link to="/iniciar-sesion" className="btn btn-login">Iniciar sesión</Link>
       </div>
     </nav>
     )

@@ -1,4 +1,5 @@
 import type { TournamentSummaryData } from '../interfaces/checkTournament.interface';
+import { topScorersMock } from '../../topScorers/actions/topScorers';
 
 export const tournamentSummaryMock: TournamentSummaryData = {
   name: 'Copa Barrio Fútbol 7',
@@ -8,11 +9,5 @@ export const tournamentSummaryMock: TournamentSummaryData = {
   endDate: '28 de noviembre de 2026',
   playedMatches: 18,
   upcomingMatches: 7,
-  topScorers: [
-    { position: 1, player: 'Mateo Silva', team: 'Los del Barrio', goals: 12 },
-    { position: 2, player: 'Daniel Rojas', team: 'Tigres FC', goals: 10 },
-    { position: 3, player: 'Javier Mena', team: 'Real Cúcuta', goals: 9 },
-    { position: 4, player: 'Santiago Lara', team: 'Furia FC', goals: 8 },
-    { position: 5, player: 'Andrés Peña', team: 'La 10', goals: 7 },
-  ],
+  topScorers: topScorersMock,
 };

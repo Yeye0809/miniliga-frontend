@@ -9,6 +9,7 @@ import PartidosPageExample from "./pages/matchesPage/PartidosPage.example";
 import { CheckTournamentPage } from "./checkTournament/components/CheckTournamentPage/CheckTournamentPage";
 import { TopScorersPage } from "./topScorers/components/TopScorersPage/TopScorersPage";
 import { StandingsPage } from "./standings/components/StandingsPage/StandingsPage";
+import { AuthPage } from "./pages/authPage/AuthPage";
 
 
 export function App(){
@@ -18,6 +19,8 @@ export function App(){
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<HomePage />} />
+                    <Route path="/iniciar-sesion" element={<AuthPage mode="login" />} />
+                    <Route path="/registro" element={<AuthPage mode="register" />} />
                     <Route path="/torneos/" element={<TournamentsPage />}/>
                     <Route path="/consultar-torneo" element={<CheckTournamentPage />} />
                     

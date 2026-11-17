@@ -1,6 +1,6 @@
 export interface TopScorer {
-  position: number;
-  player: string;
-  team: string;
-  goals: number;
+  nombre: string;
+  apellido: string;
+  equipo: string;
+  goles: number;
 }

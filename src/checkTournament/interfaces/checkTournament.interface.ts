@@ -1,9 +1,4 @@
-export interface TopScorer {
-  position: number;
-  player: string;
-  team: string;
-  goals: number;
-}
+import type { TopScorer } from '../../topScorers/interfaces/topScorer.interface';
 
 export interface TournamentSummaryData {
   name: string;

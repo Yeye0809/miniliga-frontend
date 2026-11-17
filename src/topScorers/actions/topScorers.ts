@@ -1,9 +1,14 @@
 import type { TopScorer } from '../interfaces/topScorer.interface';
 
 export const topScorersMock: TopScorer[] = [
-  { position: 1, player: 'Mateo Silva', team: 'Los del Barrio', goals: 12 },
-  { position: 2, player: 'Daniel Rojas', team: 'Tigres FC', goals: 10 },
-  { position: 3, player: 'Javier Mena', team: 'Real Cúcuta', goals: 9 },
-  { position: 4, player: 'Santiago Lara', team: 'Furia FC', goals: 8 },
-  { position: 5, player: 'Andrés Peña', team: 'La 10', goals: 7 },
+  { nombre: 'Mateo', apellido: 'Silva', equipo: 'Los del Barrio', goles: 12 },
+  { nombre: 'Daniel', apellido: 'Rojas', equipo: 'Tigres FC', goles: 10 },
+  { nombre: 'Javier', apellido: 'Mena', equipo: 'Real Cúcuta', goles: 9 },
+  { nombre: 'Santiago', apellido: 'Lara', equipo: 'Furia FC', goles: 8 },
+  { nombre: 'Andrés', apellido: 'Peña', equipo: 'La 10', goles: 7 },
+  { nombre: 'Carlos', apellido: 'Mendoza', equipo: 'Atlético Norte', goles: 6 },
+  { nombre: 'Luis', apellido: 'Castro', equipo: 'Los del Barrio', goles: 5 },
+  { nombre: 'Felipe', apellido: 'Gómez', equipo: 'Real Cúcuta', goles: 4 },
+  { nombre: 'Juan', apellido: 'Pérez', equipo: 'Tigres FC', goles: 3 },
+  { nombre: 'Nicolás', apellido: 'Vargas', equipo: 'La 10', goles: 2 },
 ];

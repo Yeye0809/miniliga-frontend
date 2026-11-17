@@ -10,7 +10,7 @@ export function HomeHero(){
             <p className="subtext">La plataforma perfecta para organizar torneos<br/>de fútbol amateur.</p>
 
             <div className="cta-group">
-                <NavLink to="torneos" className="btn btn-primary">Crear torneo</NavLink>
+                <NavLink to="iniciar-sesion" className="btn btn-primary">Crear torneo</NavLink>
                 <NavLink to="consultar-torneo" className="btn btn-secondary">Consultar torneo</NavLink>
             </div>
         </main>
