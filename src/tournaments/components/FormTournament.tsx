@@ -17,6 +17,7 @@ export const FormTournament = ({onTournamentCreate} : Props) => {
         fechaInicio: '',
         fechaFin: '',        
     })
+    const [error, setError] = useState("");
 
     const handleChange = (  e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement> ) =>{
         const {name, value} = e.target;
@@ -29,6 +30,7 @@ export const FormTournament = ({onTournamentCreate} : Props) => {
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        setError("");
         try {
             const tournamentCreated = await  CreateTournament(form);    
 
@@ -42,7 +44,7 @@ export const FormTournament = ({onTournamentCreate} : Props) => {
             });
             
         } catch (error) {
-            console.warn('Error al crear el torneo', error);
+            setError(error instanceof Error ? error.message : "No se pudo crear el torneo.");
         }
         
     }
@@ -52,7 +54,7 @@ export const FormTournament = ({onTournamentCreate} : Props) => {
 
         <div className="field">
             <label htmlFor="nombre" className="label">Nombre del torneo</label>
-            <input type="text" id="nombre" name="nombre" className="input" placeholder="Ingrese el nombre del torneo" 
+            <input type="text" id="nombre" name="nombre" className="input" placeholder="Ingrese el nombre del torneo" required
                 value={form.nombre} onChange={handleChange}
             />
         </div>
@@ -68,7 +70,7 @@ export const FormTournament = ({onTournamentCreate} : Props) => {
             <div className="field">
                 <label htmlFor="fecha-inicio" className="label">Fecha de inicio</label>
                 <div className="input-wrap">
-                <input type="text" id="fecha-inicio" name="fechaInicio" className="input input-date" placeholder="aaaa - mm - dd" 
+                <input type="date" id="fecha-inicio" name="fechaInicio" className="input input-date" required
                     value={form.fechaInicio} onChange={handleChange}
                 />
                 <svg className="icon-calendar" viewBox="0 0 24 24" aria-hidden="true">
@@ -82,7 +84,7 @@ export const FormTournament = ({onTournamentCreate} : Props) => {
             <div className="field">
                 <label htmlFor="fecha-fin" className="label">Fecha de finalización</label>
                 <div className="input-wrap">
-                <input type="text" id="fecha-fin" name="fechaFin" className="input input-date" placeholder="aaaa - mm - dd" 
+                <input type="date" id="fecha-fin" name="fechaFin" className="input input-date" required
                     value={form.fechaFin} onChange={handleChange}
                 />
                 <svg className="icon-calendar" viewBox="0 0 24 24" aria-hidden="true">
@@ -102,6 +104,7 @@ export const FormTournament = ({onTournamentCreate} : Props) => {
             </svg>
             Crear torneo
         </button>
+        {error && <p role="alert">{error}</p>}
 
     </form>
   )

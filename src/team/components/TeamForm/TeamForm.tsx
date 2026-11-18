@@ -2,6 +2,7 @@
 import './TeamForm.css';
 import { createTeam } from '../../actions/create-team';
 import type { TeamResponse } from '../../interfaces/team.interface';
+import { useState, type FormEvent } from "react";
 
 
 interface Props{
@@ -12,10 +13,11 @@ interface Props{
 
 
 export const TeamForm = ({onClose, torneoId, onTeamCreate} : Props) => {
+    const [error, setError] = useState("");
 
-   
-    const handleSubmit = async (e:React.SubmitEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        setError("");
         const formData = new FormData(e.currentTarget);
         const nameTeam = formData.get("nameTeam");
 
@@ -23,15 +25,16 @@ export const TeamForm = ({onClose, torneoId, onTeamCreate} : Props) => {
             return;
         }
 
-        const team = await  createTeam({
-            nombre : nameTeam.trim(),
-            torneo : torneoId, 
-        });
-        
-        onTeamCreate(team);
-        console.log({team})
-
-        onClose();
+        try {
+            const team = await createTeam({
+                nombre: nameTeam.trim(),
+                torneo: torneoId,
+            });
+            onTeamCreate(team);
+            onClose();
+        } catch (createError) {
+            setError(createError instanceof Error ? createError.message : "No se pudo crear el equipo.");
+        }
     };
 
     return (
@@ -102,6 +105,7 @@ export const TeamForm = ({onClose, torneoId, onTeamCreate} : Props) => {
                     </button>
 
                 </div>
+                {error && <p role="alert">{error}</p>}
 
             </form>
 

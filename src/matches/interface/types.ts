@@ -10,6 +10,7 @@ export interface EquipoPartido {
 
 export interface Partido {
   id: number | string;
+  torneoId?: number;
   grupoId?: number | string | null;
   grupoNombre?: string | null;
   fase: FasePartido;

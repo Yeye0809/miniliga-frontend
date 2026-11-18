@@ -14,8 +14,8 @@ interface TournamentContextProps{
     setTeams : React.Dispatch<React.SetStateAction<TeamResponse[]>>;
     setTournament : React.Dispatch<React.SetStateAction<TournamentResponse | null>>;
 
-    reLoadTeams : () => void;
-    reLoadPlayers : () => void;
+    reLoadTeams : () => Promise<void>;
+    reLoadPlayers : () => Promise<void>;
     reloadTournament : () => Promise<void>;
 }
 

@@ -8,7 +8,7 @@ import type { PlayerRequest } from "../../../player/interfaces/player-interface"
 import { createPlayer } from "../../actions/playerServices";
 import { useTournament } from "../../../context/useTournament";
 
-const POSITIONS = ["Portero", "Defensa", "Mediocampista", "Delantero"];
+const POSITIONS = ["PORTERO", "DEFENSA", "MEDIOCAMPISTA", "DELANTERO"];
 
 interface Prosp{
   onClose : ()=> void;
@@ -25,10 +25,11 @@ const inititalData : PlayerRequest = {
   };
 
 
-export const PlayerForm = ({onClose} :Prosp)=> {
+export const PlayerForm = ({onClose, torneoId} :Prosp)=> {
 
   const {teams, setPlayers, reLoadTeams} = useTournament();
   const [formData, setFormData] = useState<PlayerRequest>(inititalData);
+  const [error, setError] = useState("");
 
 
 
@@ -40,15 +41,22 @@ export const PlayerForm = ({onClose} :Prosp)=> {
 
   const handleSubmit = async(e : FormEvent<HTMLElement>) =>{
       e.preventDefault();
-      const playerCreated = await createPlayer(formData);
-      setFormData(inititalData);
-      setPlayers((playersPrev) => [...playersPrev, playerCreated]);
-      console.log({playerCreated})
+      setError("");
+      try {
+        const playerCreated = await createPlayer({ ...formData, torneoId });
+        setPlayers((playersPrev) => [...playersPrev, playerCreated]);
+        setFormData(inititalData);
+        onClose();
+      } catch (createError) {
+        setError(createError instanceof Error ? createError.message : "No se pudo agregar el jugador.");
+      }
   }
 
   useEffect(()=>{
-    reLoadTeams();
-  },[])
+    void reLoadTeams().catch((loadError: unknown) => {
+      setError(loadError instanceof Error ? loadError.message : "No se pudieron cargar los equipos.");
+    });
+  },[reLoadTeams])
 
 
   return (
@@ -84,7 +92,7 @@ export const PlayerForm = ({onClose} :Prosp)=> {
         label="Equipo"
         placeholder="Selecciona un equipo"
         options={teams}
-        getValue={(team) => team.id}
+        getValue={(team) => team.nombre}
         getLabel={(team) => team.nombre}
         onChange={handleChange}
         value={formData.equipo}
@@ -103,6 +111,7 @@ export const PlayerForm = ({onClose} :Prosp)=> {
       />
 
       <FormActions onClose={onClose} />
+      {error && <p role="alert">{error}</p>}
     </form>
   );
 }

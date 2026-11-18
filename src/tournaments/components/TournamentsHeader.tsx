@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import { logoutMockUser } from "../../auth/mockAuth";
 
 export function TournamentsHeader(){
     return (
@@ -7,7 +8,7 @@ export function TournamentsHeader(){
                 Registrar torneo
             </h1>
 
-            <NavLink to="/" className="btn btn-logout-tournament">
+            <NavLink to="/" className="btn btn-logout-tournament" onClick={logoutMockUser}>
                 <svg className="icon-logout" viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M9 4H6.5A2.5 2.5 0 0 0 4 6.5v11A2.5 2.5 0 0 0 6.5 20H9" />
                     <path d="M13 8l4 4-4 4" />

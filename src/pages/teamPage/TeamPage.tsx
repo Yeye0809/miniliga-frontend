@@ -5,20 +5,25 @@ import { TeamForm } from '../../team/components/TeamForm/TeamForm';
 
 import './TeamPage.css';
 import { useTournament } from '../../context/useTournament';
+import { useNavigate } from "react-router-dom";
 
 
 export function TeamPage(){
 
-    const {reLoadTeams, torneoId, teams, setTeams } = useTournament();
+    const {reLoadTeams, reLoadPlayers, torneoId, teams, players, setTeams } = useTournament();
+    const navigate = useNavigate();
 
     const [search, setSearch] = useState('');
     const [showForm, setShowForm] = useState(false);
+    const [loadError, setLoadError] = useState("");
     
     useEffect(()=>{      
-        reLoadTeams();
-    },[torneoId])
+        Promise.all([reLoadTeams(), reLoadPlayers()]).catch((error: unknown) => {
+            setLoadError(error instanceof Error ? error.message : "No se pudo cargar la información del torneo.");
+        });
+    },[torneoId, reLoadTeams, reLoadPlayers])
 
-    const filteredTeams = teams.filter( team => team.nombre.toLowerCase().includes(search));
+    const filteredTeams = teams.filter( team => team.nombre.toLowerCase().includes(search.toLowerCase()));
    
     if( !torneoId ){
         return <h1>Torneo no existe</h1>
@@ -26,10 +31,11 @@ export function TeamPage(){
 
     return(
     <main className="content">
+        {loadError && <p role="alert">{loadError}</p>}
 
         <header className="page-header">
             <div className="page-header-left">
-                <button className="back-btn" aria-label="Volver">
+                <button className="back-btn" aria-label="Volver al panel" onClick={() => navigate("..")}>
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
                 </button>
                 <h1>Equipos</h1>
@@ -64,7 +70,7 @@ export function TeamPage(){
             )
         }
 
-        <EquipoGrid teams={filteredTeams}/>
+        <EquipoGrid teams={filteredTeams} players={players}/>
 
     </main>
     )

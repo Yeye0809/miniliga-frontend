@@ -1,5 +1,5 @@
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useTournament } from "../../context/useTournament";
 
@@ -10,15 +10,13 @@ interface Props{
 export const HeaderPanel = ( {torneoId} : Props ) => {
     
   const {reloadTournament, tournament} = useTournament();
+  const [loadError, setLoadError] = useState("");
 
       useEffect(()=>{
         void reloadTournament().catch((error: unknown) => {
-          console.error("No se pudo cargar la información del torneo", error);
+          setLoadError(error instanceof Error ? error.message : "No se pudo cargar la información del torneo.");
         });
-        console.log('cargando infor del torneo')
       },[reloadTournament, torneoId]);
-  
-    console.log("header")
 
   const estado = tournament
     ? tournament.estado ?? (tournament.activo ? "ACTIVO" : "FINALIZADO")
@@ -41,6 +39,7 @@ export const HeaderPanel = ( {torneoId} : Props ) => {
           )}
         </div>
         <p className="subtitle">{ tournament?.descripcion }</p>
+        {loadError && <p role="alert">{loadError}</p>}
       </div>
 
       <div className="header-actions">

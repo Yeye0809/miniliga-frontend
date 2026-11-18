@@ -38,3 +38,17 @@ export const gruposStandingsMock: GrupoPosicion[] = [
     ]),
   },
 ];
+
+export const gruposStandingsByTournament: Record<number, GrupoPosicion[]> = {
+  1: gruposStandingsMock,
+  2: [
+    {
+      nombre: "Grupo A",
+      equipos: ordenarEquiposGrupo([
+        { nombre: "Norte Unido", pj: 0, g: 0, e: 0, p: 0, gf: 0, gc: 0, dg: 0, puntos: 0 },
+        { nombre: "San Pedro", pj: 0, g: 0, e: 0, p: 0, gf: 0, gc: 0, dg: 0, puntos: 0 },
+        { nombre: "Leones FC", pj: 0, g: 0, e: 0, p: 0, gf: 0, gc: 0, dg: 0, puntos: 0 },
+      ]),
+    },
+  ],
+};

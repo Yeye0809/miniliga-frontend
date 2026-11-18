@@ -2,10 +2,11 @@ import type { TeamResponse } from "../interfaces/team.interface"
 
 interface TeamProps{
     team: TeamResponse;
+    playerCount: number;
 }
 
 
-export function EquipoCard({team} : TeamProps){
+export function EquipoCard({team, playerCount} : TeamProps){
     return(
         <div className="team-card">
             <div className="team-logo">
@@ -22,8 +23,8 @@ export function EquipoCard({team} : TeamProps){
             </svg>
             </div>
             <h3 className="team-name">{team.nombre}</h3>
-            <p className="team-group">{team.torneo}</p>
-            <p className="team-players">0 jugadores</p>
+            <p className="team-group">{team.entrenador ? `Entrenador: ${team.entrenador}` : "Equipo inscrito"}</p>
+            <p className="team-players">{playerCount} jugadores</p>
         </div>
     )
 }

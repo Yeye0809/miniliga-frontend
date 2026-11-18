@@ -10,6 +10,7 @@ export interface PlayerResponse{
     shirtNumber ?: number;
     yellowCards ?: number;
     redCards ?: number;
+    torneoId?: number;
 
 }
 
@@ -20,4 +21,5 @@ export interface PlayerRequest{
     posicion: Position | '';
     equipo: string;
     shirtNumber : string;
+    torneoId?: number;
 }

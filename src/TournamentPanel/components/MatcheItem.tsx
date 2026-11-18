@@ -5,11 +5,14 @@ interface Props{
 }
 
 export const MatcheItem = ( {matche} : Props) => {
+  const matchDate = new Date(matche.fecha);
+  const dateLabel = matchDate.toLocaleDateString("es-CO", { weekday: "short", day: "numeric", month: "short" });
+  const timeLabel = matchDate.toLocaleTimeString("es-CO", { hour: "2-digit", minute: "2-digit" });
   return (
     <li className="match-row">
         <div className="match-time">
-            <p className="match-date">Sáb 25 May</p>
-            <p className="match-hour">10:00 AM</p>
+            <p className="match-date">{dateLabel}</p>
+            <p className="match-hour">{timeLabel}</p>
         </div>
         <div className="match-teams">
             <span className="team">

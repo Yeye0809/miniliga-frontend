@@ -1,6 +1,11 @@
 import './PlayerSearch.css'
 
-export const PlayerSearch = () => {
+interface PlayerSearchProps {
+  value: string;
+  onChange: (value: string) => void;
+}
+
+export const PlayerSearch = ({ value, onChange }: PlayerSearchProps) => {
   return (
     <div className="player-search">
       <svg className="player-search__icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -12,6 +17,8 @@ export const PlayerSearch = () => {
         className="player-search__input"
         placeholder="Buscar jugador..."
         aria-label="Buscar jugador"
+        value={value}
+        onChange={(event) => onChange(event.target.value)}
       />
     </div>
   )

@@ -1,8 +1,13 @@
-import axios from "axios"
+import { mockTournaments } from "../../data/mockData";
+import { readMockCollection } from "../../data/mockStore";
 import type { TournamentResponse } from "../../tournaments/interfaces/Tournament.response";
 
-export  const getTournamentById = async( torneoId : Number ) : Promise<TournamentResponse> => {
-    const response = await axios.get<TournamentResponse>(`http://localhost:8080/api/torneo/${torneoId}`);
+export const getTournamentById = async(torneoId: number): Promise<TournamentResponse> => {
+    const tournament = readMockCollection("tournaments", mockTournaments)
+        .find((item) => item.id === torneoId);
 
-    return response.data;
+    if (!tournament) {
+        throw new Error(`No se encontró el torneo ${torneoId}.`);
+    }
+    return tournament;
 }

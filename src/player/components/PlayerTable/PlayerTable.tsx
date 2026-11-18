@@ -1,23 +1,36 @@
 import { PlayerRow } from "../PlayerRow/PlayerRow";
 
 import './PlayerTable.css';
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useTournament } from "../../../context/useTournament";
 
+interface PlayerTableProps {
+  search: string;
+  teamFilter: string;
+}
 
-
-export const PlayerTable = ( ) => {
+export const PlayerTable = ({ search, teamFilter }: PlayerTableProps) => {
 
   const {players, reLoadPlayers, torneoId} = useTournament();
+  const [error, setError] = useState("");
 
    useEffect(()=>{ 
-        
-      reLoadPlayers();
-  
-    },[torneoId]);
+      let active = true;
+      reLoadPlayers().catch((loadError: unknown) => {
+        if (active) setError(loadError instanceof Error ? loadError.message : "No se pudieron cargar los jugadores.");
+      });
+      return () => { active = false; };
+    },[torneoId, reLoadPlayers]);
+
+    const filteredPlayers = players.filter((player) => {
+      const searchable = `${player.nombre} ${player.apellido} ${player.telefono}`.toLowerCase();
+      return searchable.includes(search.toLowerCase())
+        && (!teamFilter || player.equipo === teamFilter);
+    });
 
   return (
    <section className="players-table" aria-label="Listado de jugadores">
+      {error && <p role="alert">{error}</p>}
       <div className="players-table__scroll">
         <table className="players-table__table">
           <thead className="players-table__head">
@@ -37,7 +50,7 @@ export const PlayerTable = ( ) => {
             </tr>
           </thead>
           <tbody>
-            {players.map((player) => (
+            {filteredPlayers.map((player) => (
               <PlayerRow key={player.id} playerProps={player} />
             ))}
           </tbody>

@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { loginMockUser, registerMockUser } from "../../auth/mockAuth";
 import "./AuthPage.css";
 
 interface AuthPageProps {
@@ -8,10 +9,12 @@ interface AuthPageProps {
 
 export function AuthPage({ mode }: AuthPageProps) {
   const isRegister = mode === "register";
+  const navigate = useNavigate();
   const [message, setMessage] = useState("");
   const [hasError, setHasError] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setMessage("");
     setHasError(false);
@@ -23,11 +26,30 @@ export function AuthPage({ mode }: AuthPageProps) {
       return;
     }
 
-    setMessage(
-      isRegister
-        ? "Tus datos son válidos. El registro aún no se envía porque falta conectar la API de autenticación."
-        : "Tus datos son válidos. El inicio de sesión aún no está conectado a la API de autenticación.",
-    );
+    setIsSubmitting(true);
+    try {
+      if (isRegister) {
+        await registerMockUser({
+          firstName: String(formData.get("firstName")).trim(),
+          lastName: String(formData.get("lastName")).trim(),
+          identityNumber: String(formData.get("identityNumber")).trim(),
+          phone: String(formData.get("phone")).trim(),
+          email: String(formData.get("email")).trim(),
+        }, String(formData.get("password")));
+        setMessage("Cuenta creada. Ya puedes iniciar sesión con tu teléfono y contraseña.");
+      } else {
+        await loginMockUser(
+          String(formData.get("phone")),
+          String(formData.get("password")),
+        );
+        navigate("/torneos");
+      }
+    } catch (error) {
+      setMessage(error instanceof Error ? error.message : "No se pudo completar la operación.");
+      setHasError(true);
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
@@ -113,8 +135,8 @@ export function AuthPage({ mode }: AuthPageProps) {
             </label>
           )}
 
-          <button className="auth-submit" type="submit">
-            {isRegister ? "Crear cuenta" : "Iniciar sesión"}
+          <button className="auth-submit" type="submit" disabled={isSubmitting}>
+            {isSubmitting ? "Procesando…" : isRegister ? "Crear cuenta" : "Iniciar sesión"}
           </button>
           {message && (
             <p className={`auth-message${hasError ? " auth-message--error" : ""}`} role={hasError ? "alert" : "status"}>

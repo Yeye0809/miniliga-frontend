@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState, type ReactNode } from "react"
+import { useCallback, useState, type ReactNode } from "react"
 import type { PlayerResponse } from "../player/interfaces/player-interface";
 import type { TeamResponse } from "../team/interfaces/team.interface";
 import { getTeamByTorneo } from "../team/actions/get-team-by-touenament";
@@ -24,42 +24,20 @@ export const TournamentProvider = ({children, torneoId} : TournamentProviderProp
     const [teams, setTeams] = useState<TeamResponse[]>([]);
     const [tournament, setTournament] = useState<TournamentResponse | null>(null);
 
-    const teamsCache = useRef<Record<string, TeamResponse[]>>({});
-    const playersCache = useRef<Record<string, PlayerResponse[]>>({});
-
     const loadTournament = useCallback(async() => {
         const data = await getTournamentById(torneoId);
         setTournament(data);
-        console.log(data);
     }, [torneoId]);
 
-    const loadTeams = async() => {  
-
-        if( teamsCache.current['teams'] ){
-            setTeams(teamsCache.current['teams']);
-            console.log('equipos en cache')
-            return;
-        }             
-
-        const data = await getTeamByTorneo(Number(torneoId));          
+    const loadTeams = useCallback(async() => {
+        const data = await getTeamByTorneo(torneoId);
         setTeams(data);
-        teamsCache.current['teams'] = data;
-        console.log('cargando equipos de DB');
-    }
+    }, [torneoId]);
 
-    const loadPlayers = async () => {
-
-        if( playersCache.current['players'] ){
-           setPlayers(playersCache.current['players']);
-           console.log('jugadores en cache');  
-           return;
-        }
-
+    const loadPlayers = useCallback(async() => {
         const data = await getPlayers(torneoId);
         setPlayers(data);
-        playersCache.current['players'] = data;
-        console.log('cargandi jugadores de DB');
-    }
+    }, [torneoId]);
 
   return (
     <TournamenContext.Provider value={{

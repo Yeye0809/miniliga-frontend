@@ -8,14 +8,14 @@ import { getTournamentAll } from "../actions/get-tournament-all"
 export const TournamentsMain = () => {
 
     const [tournaments, setTournaments] = useState<TournamentResponse[]>([]);
+    const [loadError, setLoadError] = useState("");
 
     useEffect(() => {
-      const loadTournament = async ()=>{
-        const data = await getTournamentAll();
-        setTournaments(data);
-      }
-
-      loadTournament();
+      getTournamentAll()
+        .then(setTournaments)
+        .catch((error: unknown) => {
+          setLoadError(error instanceof Error ? error.message : "No se pudieron cargar los torneos.");
+        });
     
     }, [])   
 
@@ -27,6 +27,7 @@ export const TournamentsMain = () => {
         <section className="card card-form">
            <FormTournament onTournamentCreate={setTournaments}/>
         </section>
+        {loadError && <p role="alert">{loadError}</p>}
 
         <section className="card card-table">
             <TournamentBracket tournaments={tournaments}/>

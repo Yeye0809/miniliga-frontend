@@ -1,6 +1,13 @@
 
+import { Link } from "react-router-dom";
+import { useTournament } from "../../context/useTournament";
 
-export const TournamentSumaryCard = () => {
+interface TournamentSummaryProps {
+  teamCount: number;
+}
+
+export const TournamentSumaryCard = ({ teamCount }: TournamentSummaryProps) => {
+  const { tournament } = useTournament();
   return (
       <div className="card info-card">
         <div className="card-header">
@@ -19,26 +26,26 @@ export const TournamentSumaryCard = () => {
             <svg className="info-icon" viewBox="0 0 24 24" fill="none"><rect x="4" y="5" width="16" height="15" rx="2" stroke="currentColor" strokeWidth="1.6"/><path d="M4 9.5h16M8 3v3M16 3v3" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"/></svg>
             <div>
               <p className="info-label">Inicio</p>
-              <p className="info-value">10 de Mayo, 2024</p>
+              <p className="info-value">{tournament?.fechaInicio ?? "Sin fecha"}</p>
             </div>
           </li>
           <li className="info-row">
             <svg className="info-icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.3" stroke="currentColor" strokeWidth="1.6"/><path d="M5 20c0-3.6 3.1-6.3 7-6.3s7 2.7 7 6.3" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"/></svg>
             <div>
               <p className="info-label">Organizador</p>
-              <p className="info-value">Juan Pablo</p>
+              <p className="info-value">Organizador MiniLiga</p>
             </div>
           </li>
           <li className="info-row">
             <svg className="info-icon" viewBox="0 0 24 24" fill="none"><circle cx="9" cy="8" r="3" stroke="currentColor" strokeWidth="1.6"/><path d="M3.5 19c0-3 2.5-5 5.5-5s5.5 2 5.5 5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"/><circle cx="17" cy="9" r="2.3" stroke="currentColor" strokeWidth="1.6"/><path d="M15.5 19c0-2.3 1.8-4 3.8-4s3.7 1.2 4.2 3.3" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"/></svg>
             <div>
               <p className="info-label">Equipos</p>
-              <p className="info-value">16</p>
+              <p className="info-value">{teamCount}</p>
             </div>
           </li>
         </ul>
 
-        <button className="btn btn-primary btn-full">Gestionar torneo</button>
+        <Link className="btn btn-primary btn-full" to="configuracion">Gestionar torneo</Link>
       </div>
   )
 }
