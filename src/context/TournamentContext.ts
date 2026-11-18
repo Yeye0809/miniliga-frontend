@@ -16,7 +16,7 @@ interface TournamentContextProps{
 
     reLoadTeams : () => void;
     reLoadPlayers : () => void;
-    reloadTournament : ()=> void;
+    reloadTournament : () => Promise<void>;
 }
 
 export const TournamenContext = createContext({} as TournamentContextProps);

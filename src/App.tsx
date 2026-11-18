@@ -10,6 +10,7 @@ import { CheckTournamentPage } from "./checkTournament/components/CheckTournamen
 import { TopScorersPage } from "./topScorers/components/TopScorersPage/TopScorersPage";
 import { StandingsPage } from "./standings/components/StandingsPage/StandingsPage";
 import { AuthPage } from "./pages/authPage/AuthPage";
+import { TournamentSettingsPage } from "./pages/tournamentSettingsPage/TournamentSettingsPage";
 
 
 export function App(){
@@ -31,6 +32,7 @@ export function App(){
                         <Route path="equipos"  element={<TeamPage />}/>
                         <Route path="jugadores" element={<PlayerPage />}/>
                         <Route path="partidos" element={<PartidosPageExample />}/>
+                        <Route path="configuracion" element={<TournamentSettingsPage />} />
                     </Route>
                     
                 </Routes>                

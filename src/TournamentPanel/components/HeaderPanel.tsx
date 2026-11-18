@@ -12,19 +12,33 @@ export const HeaderPanel = ( {torneoId} : Props ) => {
   const {reloadTournament, tournament} = useTournament();
 
       useEffect(()=>{
-        
-        reloadTournament();
+        void reloadTournament().catch((error: unknown) => {
+          console.error("No se pudo cargar la información del torneo", error);
+        });
         console.log('cargando infor del torneo')
-      },[torneoId]);
+      },[reloadTournament, torneoId]);
   
     console.log("header")
+
+  const estado = tournament
+    ? tournament.estado ?? (tournament.activo ? "ACTIVO" : "FINALIZADO")
+    : null;
+  const statusLabels = {
+    ACTIVO: "En curso",
+    PAUSADO: "En pausa",
+    FINALIZADO: "Finalizado",
+  } as const;
 
   return (
     <header className="page-header">
       <div className="header-title">
         <div className="title-row">
           <h1>{ tournament?.nombre }</h1>
-          <span className="badge-live">En curso</span>
+          {estado && (
+            <span className={`badge-live badge-live--${estado.toLowerCase()}`}>
+              {statusLabels[estado]}
+            </span>
+          )}
         </div>
         <p className="subtitle">{ tournament?.descripcion }</p>
       </div>

@@ -53,10 +53,10 @@ export function SideBar(){
                 <svg className="nav-icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="currentColor" strokeWidth="1.7"/><path d="M12 11v5.5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round"/><circle cx="12" cy="8" r="0.9" fill="currentColor"/></svg>
                 <span>Información</span>
             </a>
-            <a href="#" className="nav-item" onClick={closeSidebar}>
+            <NavLink to="configuracion" className={({isActive}) => isActive ? "nav-item active" : "nav-item"} onClick={closeSidebar}>
                 <svg className="nav-icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" strokeWidth="1.7"/><path d="M19.4 13.5c.1-.5.1-1 0-1.5l1.6-1.3-1.6-2.8-1.9.6c-.4-.3-.8-.6-1.3-.8L15.8 5.6h-3.6l-.4 2.1c-.5.2-.9.5-1.3.8l-1.9-.6-1.6 2.8 1.6 1.3c-.1.5-.1 1 0 1.5l-1.6 1.3 1.6 2.8 1.9-.6c.4.3.8.6 1.3.8l.4 2.1h3.6l.4-2.1c.5-.2.9-.5 1.3-.8l1.9.6 1.6-2.8Z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/></svg>
                 <span>Configuración</span>
-            </a>
+            </NavLink>
             </nav>
 
             <div className="tournament-code-card">

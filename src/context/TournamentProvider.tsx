@@ -1,4 +1,4 @@
-import { useRef, useState, type ReactNode } from "react"
+import { useCallback, useRef, useState, type ReactNode } from "react"
 import type { PlayerResponse } from "../player/interfaces/player-interface";
 import type { TeamResponse } from "../team/interfaces/team.interface";
 import { getTeamByTorneo } from "../team/actions/get-team-by-touenament";
@@ -27,11 +27,11 @@ export const TournamentProvider = ({children, torneoId} : TournamentProviderProp
     const teamsCache = useRef<Record<string, TeamResponse[]>>({});
     const playersCache = useRef<Record<string, PlayerResponse[]>>({});
 
-    const loadTournament = async() => {
+    const loadTournament = useCallback(async() => {
         const data = await getTournamentById(torneoId);
         setTournament(data);
         console.log(data);
-    }
+    }, [torneoId]);
 
     const loadTeams = async() => {  
 
